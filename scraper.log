@@ -1,0 +1,52 @@
+2026-04-29 16:12:01,695 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 16:12:02,831 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 16:12:02,833 - WARNING - Missing published_date; using recency penalty.
+2026-04-29 16:12:02,833 - WARNING - No content chunks produced for https://www.youtube.com/watch?v=XVv6mJpFOb0
+2026-04-29 16:12:03,022 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 16:12:04,296 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 16:12:04,297 - WARNING - Missing published_date; using recency penalty.
+2026-04-29 16:12:04,297 - WARNING - No content chunks produced for https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 16:12:05,318 - WARNING - Entrez fetch failed for 34356119: the XML file must be opened in binary mode.
+2026-04-29 16:12:05,318 - WARNING - Skipping URL due to scrape failure: https://pubmed.ncbi.nlm.nih.gov/34356119/
+2026-04-29 17:04:26,075 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 17:04:29,646 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 17:04:29,647 - WARNING - Using description as transcript fallback: https://www.youtube.com/watch?v=XVv6mJpFOb0
+2026-04-29 17:04:30,301 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 17:04:40,074 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 17:04:40,075 - WARNING - Using description as transcript fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 17:15:16,363 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 17:15:18,945 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 17:15:20,039 - WARNING - Using description as transcript fallback: https://www.youtube.com/watch?v=XVv6mJpFOb0
+2026-04-29 17:15:20,240 - WARNING - Failed to fetch YouTube metadata: HTTP Error 400: Bad Request
+2026-04-29 17:15:22,741 - WARNING - Transcript fetch failed: no element found: line 1, column 0
+2026-04-29 17:15:23,938 - WARNING - Using description as transcript fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 17:24:10,817 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=XVv6mJpFOb0
+2026-04-29 17:24:16,700 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 17:51:10,151 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=XVv6mJpFOb0
+2026-04-29 17:51:17,926 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:06:57,189 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:07:00,673 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:18:53,570 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:18:59,235 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:32:01,728 - WARNING - Cookies file is empty: cookies.txt
+2026-04-29 18:32:04,133 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] uc6-2z4e9oA: Please sign in
+2026-04-29 18:32:08,328 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:32:08,335 - WARNING - Cookies file is empty: cookies.txt
+2026-04-29 18:32:10,398 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] ng2o98k983k: Please sign in
+2026-04-29 18:32:17,120 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:32:46,478 - WARNING - Cookies file is empty: cookies.txt
+2026-04-29 18:32:48,722 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] uc6-2z4e9oA: Please sign in
+2026-04-29 18:32:52,293 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:32:52,297 - WARNING - Cookies file is empty: cookies.txt
+2026-04-29 18:32:53,946 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] ng2o98k983k: Please sign in
+2026-04-29 18:32:57,963 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:34:11,302 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] uc6-2z4e9oA: Requested format is not available. Use --list-formats for a list of available formats
+2026-04-29 18:34:15,471 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:34:18,440 - WARNING - yt-dlp error: [0;31mERROR:[0m [youtube] ng2o98k983k: Requested format is not available. Use --list-formats for a list of available formats
+2026-04-29 18:34:22,347 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 18:55:51,501 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 18:56:00,565 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 19:05:14,200 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 19:05:20,912 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k
+2026-04-29 19:39:05,779 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=uc6-2z4e9oA
+2026-04-29 19:39:11,337 - WARNING - Transcript unavailable; using description fallback: https://www.youtube.com/watch?v=ng2o98k983k

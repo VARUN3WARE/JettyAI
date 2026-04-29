@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        
+            <title>Web Scraping Python Tutorial – How to Scrape Data From A Website</title>
+        
+        <meta name="HandheldFriendly" content="True">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Mono:wght@400;700&display=swap">
+        
+
+        
+        
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/themes/prism.min.css">
+</noscript>
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+<noscript>
+  <link rel="stylesheet" href="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/unescaped-markup/prism-unescaped-markup.min.css">
+</noscript>
+
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/components/prism-core.min.js"></script>
+<script defer="" src="https://cdn.freecodecamp.org/news-assets/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+        
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/news/assets/css/global-a1e6959968.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/variables-b2e544cd65.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/screen-d1c41ea162.css">
+        <link rel="stylesheet" type="text/css" href="/news/assets/css/search-bar-cd71311c1d.css">
+
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/algoliasearch/5.46.3/lite/browser.umd.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/algolia/autocomplete/1.19.4/index.production.min.js"></script>
+        
+        
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/dayjs.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/localizedFormat.min.js"></script>
+        <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/relativeTime.min.js"></script>
+
+        
+        
+            <script defer="" src="https://cdn.freecodecamp.org/news-assets/dayjs/1.10.4/locale/en.min.js"></script>
+        
+
+        
+        <script>document.addEventListener("DOMContentLoaded",async()=>{const{liteClient:e}=window["algoliasearch/lite"],{autocomplete:t,getAlgoliaResults:n}=window["@algolia/autocomplete-js"],a=e("QMJYL5WYTI","89770b24481654192d7a5c402c6ad9a0"),o=window.screen.width>=767&&window.screen.height>=768?8:5,s=((e,t)=>{let n;return(...a)=>(n&&clearTimeout(n),new Promise(o=>{n=setTimeout(()=>o(e(...a)),t)}))})(e=>Promise.resolve(e),200),r=e=>t({container:e,panelContainer:e,stallThreshold:500,detachedMediaQuery:"none",debug:!0,placeholder:Number("12500")<100?"Search our news articles, tutorials, and books":"Search 12,500+ news articles, tutorials, and books",getSources:()=>s([{sourceId:"links",getItemUrl:({item:e})=>e.url,getItems:({query:e})=>n({searchClient:a,queries:[{indexName:"news",params:{query:e,hitsPerPage:o}}]}),templates:{item:({item:e,components:t,html:n})=>n`<a class="aa-ItemLink" href=${e.url}>
+                  <div class="aa-ItemContent">
+                    <div class="aa-ItemContentBody">
+                      <div class="aa-ItemContentTitle">
+                        ${t.Highlight({hit:e,attribute:"title",tagName:"mark"})}
+                      </div>
+                    </div>
+                  </div>
+                </a>`,footer({state:e,html:t}){const n=e?.query,a=e?.collections[0]?.items;if(a.length)return t`<a
+                    class="aa-ItemLink"
+                    href="https://www.freecodecamp.org/news/search?query=${n}"
+                    ><div class="aa-ItemContent">
+                      See all results for ${n}
+                    </div></a
+                  >`},noResults:()=>"No results found"}}])}),i=r("#nav-left-search-container");r("#nav-right-search-container");const c=document.querySelectorAll(".fcc-search-container");document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||e.target.isContentEditable||"/"!==e.key&&"s"!==e.key||(e.preventDefault(),c.forEach(e=>{e.checkVisibility()&&e.querySelector("input").focus()}))}),c.forEach(e=>{e.addEventListener("submit",t=>{t.preventDefault();const n=e.querySelector("input").value.trim(),a=e.querySelector(".aa-List");n&&a&&window.location.assign(`https://www.freecodecamp.org/news/search?query=${n}`)})}),document.addEventListener("click",e=>{e.target!==document.querySelector("#nav-left-search-container .aa-Form")&&i.setIsOpen(!1)})}),document.addEventListener("DOMContentLoaded",()=>{dayjs.extend(dayjs_plugin_localizedFormat),dayjs.extend(dayjs_plugin_relativeTime),dayjs.locale("en")});const isAuthenticated=document.cookie.split(";").some(e=>e.trim().startsWith("jwt_access_token=")),isDonor=document.cookie.split(";").some(e=>e.trim().startsWith("isDonor=true"));document.addEventListener("DOMContentLoaded",()=>{document.getElementById("toggle-button-nav").addEventListener("click",function(){const e=document.getElementById("menu-dropdown"),t=document.getElementById("toggle-button-nav");e.classList.toggle("display-menu"),t.ariaExpanded="true"==t.ariaExpanded?"false":"true"})});</script>
+
+        
+            <script src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossorigin="anonymous" async=""></script>
+        
+
+        
+        
+    
+        
+            <script>
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var isSideBarDisplayed = window.getComputedStyle(sidebar).display !== 'none';
+    function prepareAdSlot(elementId) {
+        // Get the element by ID
+        const targetElement = document.getElementById(elementId);
+
+        // Ensure the element exists before proceeding
+        if (!targetElement) {
+            console.error(`Element with ID ${elementId} not found`);
+            return;
+        }
+
+        const parentElement = targetElement.parentElement;
+        // Change the background color of the parent element
+
+        if (parentElement) {
+            console.log(elementId)
+
+            if (elementId === 'gam-ad-bottom' ) {
+                parentElement.style.backgroundColor = '#eeeef0';
+                if(getComputedStyle(parentElement).visibility === 'hidden') {
+                    parentElement.style.visibility = 'inherit'; 
+                }
+            }
+
+            // Get the sibling elements
+            const siblingElements = parentElement.children;
+
+            for (let i = 0; i < siblingElements.length; i++) {
+                const sibling = siblingElements[i];
+
+                // Skip the element itself
+                if (sibling === targetElement) continue;
+
+                // Log the sibling or perform any other action
+                console.log('Found sibling:', sibling);
+
+                // Check visibility
+                if(getComputedStyle(sibling).visibility === 'hidden') {
+                    sibling.style.visibility = 'inherit'; 
+                }
+
+                // Check if display is 'none', then change it to 'block'
+                if (getComputedStyle(sibling).display === 'none') {
+                    sibling.style.display = 'block'; 
+                }
+            }
+        } else {
+            console.warn('No parent element found');
+        }
+    }
+
+    
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+
+        if(isSideBarDisplayed){
+            var sidebarHeight = sidebar.offsetHeight;
+            var adTextSideBarHeight = 0;
+            var sideBarAdContainert = 600 + 17;
+        
+            var styles = window.getComputedStyle(sidebar);
+            var avaiableSideAdSpace = sidebarHeight - adTextSideBarHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+            var numSideElements = Math.floor(avaiableSideAdSpace / sideBarAdContainert);
+            for (var i = 0; i < numSideElements; i++) {
+                // container element
+                var containerElement = document.createElement('div');
+                containerElement.classList.add('ad-wrapper');
+
+                //text element
+                var textElement = document.createElement('div');
+                textElement.classList.add('ad-text');
+                textElement.innerText = localizedAdText;
+
+                // ad element
+                var adElement = document.createElement('div');
+                var sideAdElementId = 'side-gam-ad-' + i;
+                adElement.id = sideAdElementId;
+                adElement.classList.add('side-bar-ad-slot');
+
+                // finalize setup
+                containerElement.appendChild(textElement);
+                containerElement.appendChild(adElement);
+                sidebar.appendChild(containerElement);
+                googletag.defineSlot('/23075930536/post-side', [[292, 30], [240, 400], [300, 75], [216, 54], [250, 360], [300, 50], 'fluid', [300, 31], [120, 20], [300, 250], [120, 30], [180, 150], [200, 446], [168, 42], [200, 200], [160, 600], [120, 90], [125, 125], [240, 133], [120, 60], [1, 1], [120, 240], [220, 90], [216, 36], [250, 250], [168, 28], [234, 60], [120, 600], [300, 600], [88, 31], [300, 100]], sideAdElementId).addService(googletag.pubads());
+            }
+        }
+
+        // Define bottom ad
+        googletag.defineSlot('/23075930536/post-bottom', ['fluid'], 'gam-ad-bottom').addService(googletag.pubads());
+
+        // Enable lazy loading with default settings.
+        googletag.pubads().enableLazyLoad();
+
+        googletag.pubads().addEventListener("slotRequested", (event) => {
+            console.log(`Slot ${event.slot.getSlotElementId()} fetched`);
+        });
+
+        googletag.pubads().addEventListener("slotOnload", (event) => {
+            const elementId = event.slot.getSlotElementId();
+            prepareAdSlot(elementId);
+            console.log(`Slot ${event.slot.getSlotElementId()} rendered`);
+        });
+
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+
+
+        // Trigger lazy loading
+        googletag.display('gam-ad-bottom');
+
+    });
+});
+</script>
+
+        
+    
+
+
+        
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5D6RKKP');</script>
+
+        
+
+        
+        
+    
+        
+    
+        
+    
+
+
+        
+        
+        
+
+        
+        
+
+        <link rel="icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/png">
+        
+        
+            <link rel="canonical" href="https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/">
+        
+        <meta name="referrer" content="no-referrer-when-downgrade">
+
+        
+
+        
+    <meta name="description" content="By Mehul Mohan Python is a beautiful language to code in. It has a great package ecosystem, there&#39;s much less noise than you&#39;ll find in other languages, and it is super easy to use. Python is used for a number of things, from data analysis to server ...">
+
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Web Scraping Python Tutorial – How to Scrape Data From A Website">
+    
+        <meta property="og:description" content="By Mehul Mohan Python is a beautiful language to code in. It has a great package ecosystem, there&#39;s much less noise than you&#39;ll find in other languages, and it is super easy to use. Python is used for a number of things, from data analysis to server ...">
+    
+    <meta property="og:url" content="https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2020/09/webscrapingposter.jpg">
+    <meta property="article:published_time" content="2020-09-25T20:24:10.000Z">
+    <meta property="article:modified_time" content="2020-09-25T20:24:10.000Z">
+    
+        <meta property="article:tag" content="Python">
+    
+        <meta property="article:tag" content="web scraping">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Web Scraping Python Tutorial – How to Scrape Data From A Website">
+    
+        <meta name="twitter:description" content="By Mehul Mohan Python is a beautiful language to code in. It has a great package ecosystem, there&#39;s much less noise than you&#39;ll find in other languages, and it is super easy to use. Python is used for a number of things, from data analysis to server ...">
+    
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2020/09/webscrapingposter.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="freeCodeCamp">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Python, web scraping">
+    <meta name="twitter:site" content="@freecodecamp">
+    
+        <meta name="twitter:creator" content="@freecodecamp">
+    
+
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+
+
+        
+    <script type="application/ld+json">{
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"publisher": {
+		"@type": "Organization",
+		"name": "freeCodeCamp.org",
+		"url": "https://www.freecodecamp.org/news/",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg",
+			"width": 2100,
+			"height": 240
+		}
+	},
+	"image": {
+		"@type": "ImageObject",
+		"url": "https://www.freecodecamp.org/news/content/images/2020/09/webscrapingposter.jpg",
+		"width": 600,
+		"height": 400
+	},
+	"url": "https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": "https://www.freecodecamp.org/news/"
+	},
+	"datePublished": "2020-09-25T20:24:10.000Z",
+	"dateModified": "2020-09-25T20:24:10.000Z",
+	"keywords": "Python, web scraping",
+	"description": "By Mehul Mohan\nPython is a beautiful language to code in. It has a great package ecosystem, there&#x27;s much less noise than you&#x27;ll find in other languages, and it is super easy to use.\nPython is used for a number of things, from data analysis to server ...",
+	"headline": "Web Scraping Python Tutorial – How to Scrape Data From A Website",
+	"author": {
+		"@type": "Person",
+		"name": "freeCodeCamp",
+		"url": "https://www.freecodecamp.org/news/author/freeCodeCamp/",
+		"sameAs": [
+			"https://www.freecodecamp.org",
+			"https://x.com/freecodecamp"
+		],
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://cdn.hashnode.com/res/hashnode/image/upload/v1712072540742/C7c8AOPN6.png",
+			"width": 600,
+			"height": 600
+		}
+	}
+}</script>
+
+
+        <meta name="generator" content="Eleventy">
+        <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+        
+        
+
+        
+  <meta name="x-fcc-source" data-test-label="x-fcc-source" content="Hashnode">
+
+    </head>
+
+    
+        <body class="home-template">
+    
+
+    
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D6RKKP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    
+
+        <div class="site-wrapper">
+            <nav class="site-nav nav-padding universal-nav">
+    <div class="site-nav-left">
+        <div id="nav-left-search-container" class="fcc-search-container" data-test-label="fcc-search-container"></div>
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news/" data-test-label="site-nav-logo"><img src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <div class="nav-group">
+            <button aria-expanded="false" class="exposed-button-nav" id="toggle-button-nav" data-test-label="header-menu-button">
+              <span class="sr-only">Menu</span>
+              <span class="menu-btn-text">Menu</span>
+            </button>
+            <ul id="menu-dropdown" class="nav-list" aria-labelledby="toggle-button-nav" data-test-label="header-menu">
+                <li>
+                    <div id="nav-right-search-container" class="fcc-search-container" data-test-label="fcc-search-container"></div>
+                </li>
+                <li><a class="nav-link nav-link-flex" id="nav-forum" rel="noopener noreferrer" href="https://forum.freecodecamp.org/" target="_blank" data-test-label="forum-button">Forum</a></li>
+              <li><a class="nav-link nav-link-flex" id="nav-learn" rel="noopener noreferrer" href="https://www.freecodecamp.org/learn" target="_blank" data-test-label="learn-button">Curriculum</a></li>
+            </ul>
+            <a class="toggle-button-nav" id="nav-donate" rel="noopener noreferrer" href="https://www.freecodecamp.org/donate/" target="_blank" data-test-label="donate-button">Donate</a>
+        </div>
+
+    </div>
+</nav>
+
+
+            
+            <a class="banner" id="banner" data-test-label="banner" rel="noopener noreferrer" target="_blank">
+    <p id="banner-text"></p>
+</a>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("banner"),t=document.getElementById("banner-text");if(isAuthenticated){t.innerHTML=isDonor?"Thank you for supporting freeCodeCamp through <span>your donations</span>.":"Support our charity and our mission. <span>Donate to freeCodeCamp.org</span>.",e.href=isDonor?"https://www.freecodecamp.org/news/how-to-donate-to-free-code-camp/":"https://www.freecodecamp.org/donate";const o=isDonor?"donor":"authenticated";e.setAttribute("text-variation",o)}else t.innerHTML="Learn to code — <span>free 3,000-hour curriculum</span>",e.href="https://www.freecodecamp.org/",e.setAttribute("text-variation","default")});</script>
+
+
+            <div id="error-message"></div>
+
+            
+    <main id="site-main" class="post-template site-main outer">
+        <div class="inner ad-layout">
+            <article class="post-full post">
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" data-test-label="post-full-meta-date" datetime="2020-09-25T20:24:10.000Z">
+                            September 25, 2020
+                        </time>
+                        
+                            <span class="date-divider">/</span>
+                            <a dir="ltr" href="/news/tag/python/">
+                                #Python
+                            </a>
+                        
+                    </section>
+                    <h1 class="post-full-title" data-test-label="post-full-title">Web Scraping Python Tutorial – How to Scrape Data From A Website</h1>
+                </header>
+                
+                <figure class="post-full-image">
+                    
+    <picture>
+      <source media="(max-width: 700px)" sizes="1px" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7 1w">
+      <source media="(min-width: 701px)" sizes="(max-width: 800px) 400px, (max-width: 1170px) 700px, 1400px" srcset="https://www.freecodecamp.org/news/content/images/size/w300/2020/09/webscrapingposter.jpg 300w, https://www.freecodecamp.org/news/content/images/size/w600/2020/09/webscrapingposter.jpg 600w, https://www.freecodecamp.org/news/content/images/size/w1000/2020/09/webscrapingposter.jpg 1000w, https://www.freecodecamp.org/news/content/images/size/w2000/2020/09/webscrapingposter.jpg 2000w">
+      <img onerror="this.style.display='none'" src="https://www.freecodecamp.org/news/content/images/size/w2000/2020/09/webscrapingposter.jpg" alt="Web Scraping Python Tutorial – How to Scrape Data From A Website" ,="" width="600" height="400" data-test-label="feature-image">
+    </picture>
+  
+                </figure>
+                <section class="post-full-content">
+                    <div class="post-and-sidebar">
+                        <section class="post-content " data-test-label="post-content">
+                            
+<p>By Mehul Mohan</p>
+<p>Python is a beautiful language to code in. It has a great package ecosystem, there's much less noise than you'll find in other languages, and it is super easy to use.</p>
+<p>Python is used for a number of things, from data analysis to server programming. And one exciting use-case of Python is Web Scraping. </p>
+<p>In this article, we will cover how to use Python for web scraping. We'll also work through a complete hands-on classroom guide as we proceed.</p>
+<p><em>Note: We will be scraping a webpage that I host, so we can safely learn scraping on it. Many companies do not allow scraping on their websites, so this is a good way to learn. Just make sure to check before you scrape.</em></p>
+<h2 id="heading-introduction-to-web-scraping-classroom">Introduction to Web Scraping classroom</h2>
+<p><img src="https://www.freecodecamp.org/news/content/images/2020/09/screenzy-1601054558203.png" alt="Image" width="600" height="400" loading="lazy">
+<em>Preview of codedamn classroom</em></p>
+<p>If you want to code along, you can use <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup">this free codedamn classroom</a> that consists of multiple labs to help you learn web scraping. This will be a practical hands-on learning exercise on codedamn, similar to how you learn on freeCodeCamp.</p>
+<p>In this classroom, you'll be using this page to test web scraping: <a target="_blank" href="https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/">https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</a></p>
+<p>This classroom consists of 7 labs, and you'll solve a lab in each part of this blog post. We will be using Python 3.8 + BeautifulSoup 4 for web scraping.</p>
+<h2 id="heading-part-1-loading-web-pages-with-request">Part 1: Loading Web Pages with 'request'</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/a674e637-d958-4527-8930-cc53d1fb68e9">link to this lab</a>.</p>
+<p>The <code>requests</code> module allows you to send HTTP requests using Python.</p>
+<p>The HTTP request returns a Response Object with all the response data (content, encoding, status, and so on). One example of getting the HTML of a page:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+
+res = requests.get(<span class="hljs-string">'https://codedamn.com'</span>)
+
+print(res.text)
+print(res.status_code)
+</code></pre>
+<h3 id="heading-passing-requirements">Passing requirements:</h3>
+<ul>
+<li>Get the contents of the following URL using <code>requests</code> module: <strong>https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</strong></li>
+<li>Store the text response (as shown above) in a variable called <code>txt</code></li>
+<li>Store the status code (as shown above) in a variable called <code>status</code></li>
+<li>Print <code>txt</code> and <code>status</code> using <code>print</code> function</li>
+</ul>
+<p>Once you understand what is happening in the code above, it is fairly simple to pass this lab. Here's the solution to this lab:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+
+<span class="hljs-comment"># Make a request to https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</span>
+<span class="hljs-comment"># Store the result in 'res' variable</span>
+res = requests.get(
+    <span class="hljs-string">'https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/'</span>)
+txt = res.text
+status = res.status_code
+
+print(txt, status)
+<span class="hljs-comment"># print the result</span>
+</code></pre>
+<p>Let's move on to part 2 now where you'll build more on top of your existing code.</p>
+<h2 id="heading-part-2-extracting-title-with-beautifulsoup">Part 2: Extracting title with BeautifulSoup</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/e55282e8-8481-4fb9-9a95-5df4d4a526ce">link to this lab</a>.</p>
+<p>In this whole classroom, you’ll be using a library called <code>BeautifulSoup</code> in Python to do web scraping. Some features that make BeautifulSoup a powerful solution are:</p>
+<ol>
+<li>It provides a lot of simple methods and Pythonic idioms for navigating, searching, and modifying a DOM tree. It doesn't take much code to write an application</li>
+<li>Beautiful Soup sits on top of popular Python parsers like lxml and html5lib, allowing you to try out different parsing strategies or trade speed for flexibility.</li>
+</ol>
+<p>Basically, BeautifulSoup can parse anything on the web you give it.</p>
+<p>Here’s a simple example of BeautifulSoup:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+
+page = requests.get(<span class="hljs-string">"https://codedamn.com"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+title = soup.title.text <span class="hljs-comment"># gets you the text of the &lt;title&gt;(...)&lt;/title&gt;</span>
+</code></pre>
+<h3 id="heading-passing-requirements-1">Passing requirements:</h3>
+<ul>
+<li>Use the <code>requests</code> package to get title of the URL: https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</li>
+<li>Use BeautifulSoup to store the title of this page into a variable called <code>page_title</code></li>
+</ul>
+<p>Looking at the example above, you can see once we feed the <code>page.content</code> inside BeautifulSoup, you can start working with the parsed DOM tree in a very pythonic way. The solution for the lab would be:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+
+<span class="hljs-comment"># Make a request to https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Extract title of page</span>
+page_title = soup.title.text
+
+<span class="hljs-comment"># print the result</span>
+print(page_title)
+</code></pre>
+<p>This was also a simple lab where we had to change the URL and print the page title. This code would pass the lab.</p>
+<h2 id="heading-part-3-soup-ed-body-and-head">Part 3: Soup-ed body and head</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/a91108fd-2f13-4640-ac62-d7877235376a">link to this lab</a>.</p>
+<p>In the last lab, you saw how you can extract the <code>title</code> from the page. It is equally easy to extract out certain sections too. </p>
+<p>You also saw that you have to call <code>.text</code> on these to get the string, but you can print them without calling <code>.text</code> too, and it will give you the full markup. Try to run the example below:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn.com"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Extract title of page</span>
+page_title = soup.title.text
+
+<span class="hljs-comment"># Extract body of page</span>
+page_body = soup.body
+
+<span class="hljs-comment"># Extract head of page</span>
+page_head = soup.head
+
+<span class="hljs-comment"># print the result</span>
+print(page_body, page_head)
+</code></pre>
+<p>Let's take a look at how you can extract out <code>body</code> and <code>head</code> sections from your pages.</p>
+<h3 id="heading-passing-requirements-2">Passing requirements:</h3>
+<ul>
+<li>Repeat the experiment with URL: <code>https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</code></li>
+<li>Store page title (without calling .text) of URL in <code>page_title</code></li>
+<li>Store body content (without calling .text) of URL in <code>page_body</code></li>
+<li>Store head content (without calling .text) of URL in <code>page_head</code></li>
+</ul>
+<p>When you try to print the <code>page_body</code> or <code>page_head</code> you'll see that those are printed as <code>strings</code>. But in reality, when you <code>print(type page_body)</code> you'll see it is not a string but it works fine.</p>
+<p>The solution of this example would be simple, based on the code above:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Extract title of page</span>
+page_title = soup.title
+
+<span class="hljs-comment"># Extract body of page</span>
+page_body = soup.body
+
+<span class="hljs-comment"># Extract head of page</span>
+page_head = soup.head
+
+<span class="hljs-comment"># print the result</span>
+print(page_title, page_head)
+</code></pre>
+<h2 id="heading-part-4-select-with-beautifulsoup">Part 4: select with BeautifulSoup</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/0ee9fa0e-e7ac-4afa-ad8a-b4b3d16900ef">link to this lab</a>.</p>
+<p>Now that you have explored some parts of BeautifulSoup, let's look how you can select DOM elements with BeautifulSoup methods.</p>
+<p>Once you have the <code>soup</code> variable (like previous labs), you can work with <code>.select</code> on it which is a CSS selector inside BeautifulSoup. That is, you can reach down the DOM tree just like how you will select elements with CSS. Let's look at an example:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Extract first &lt;h1&gt;(...)&lt;/h1&gt; text</span>
+first_h1 = soup.select(<span class="hljs-string">'h1'</span>)[<span class="hljs-number">0</span>].text
+</code></pre>
+<p><code>.select</code> returns a Python list of all the elements. This is why you selected only the first element here with the <code>[0]</code> index.</p>
+<h3 id="heading-passing-requirements-3">Passing requirements:</h3>
+<ul>
+<li>Create a variable <code>all_h1_tags</code>. Set it to empty list.</li>
+<li>Use <code>.select</code> to select all the <code>&lt;h1&gt;</code> tags and store the text of those h1 inside <code>all_h1_tags</code> list.</li>
+<li>Create a variable <code>seventh_p_text</code> and store the text of the 7th <code>p</code> element (index 6) inside.</li>
+</ul>
+<p>The solution for this lab is:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Create all_h1_tags as empty list</span>
+all_h1_tags = []
+
+<span class="hljs-comment"># Set all_h1_tags to all h1 tags of the soup</span>
+<span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> soup.select(<span class="hljs-string">'h1'</span>):
+    all_h1_tags.append(element.text)
+
+<span class="hljs-comment"># Create seventh_p_text and set it to 7th p element text of the page</span>
+seventh_p_text = soup.select(<span class="hljs-string">'p'</span>)[<span class="hljs-number">6</span>].text
+
+print(all_h1_tags, seventh_p_text)
+</code></pre>
+<p>Let's keep going.</p>
+<h2 id="heading-part-5-top-items-being-scraped-right-now">Part 5: Top items being scraped right now</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/0f404796-1b8f-491b-9b50-9e47893d2e47">link to this lab</a>.</p>
+<p>Let's go ahead and extract the top items scraped from the URL: https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/</p>
+<p>If you open this page in a new tab, you’ll see some top items. In this lab, your task is to scrape out their names and store them in a list called <code>top_items</code>. You will also extract out the reviews for these items as well.</p>
+<p>To pass this challenge, take care of the following things:</p>
+<ul>
+<li>Use <code>.select</code> to extract the titles. (Hint: one selector for product titles could be <code>a.title</code>)</li>
+<li>Use <code>.select</code> to extract the review count label for those product titles. (Hint: one selector for reviews could be <code>div.ratings</code>) Note: this is a complete label (i.e. <strong>2 reviews</strong>) and not just a number.</li>
+<li>Create a new dictionary in the format:</li>
+</ul>
+<pre><code class="lang-py">info = {
+   <span class="hljs-string">"title"</span>: <span class="hljs-string">'Asus AsusPro Adv...   '</span>.strip(),
+   <span class="hljs-string">"review"</span>: <span class="hljs-string">'2 reviews\n\n\n'</span>.strip()
+}
+</code></pre>
+<ul>
+<li>Note that you are using the <code>strip</code> method to remove any extra newlines/whitespaces you might have in the output. This is <strong>important</strong> to pass this lab.</li>
+<li>Append this dictionary in a list called <code>top_items</code></li>
+<li>Print this list at the end</li>
+</ul>
+<p>There are quite a few tasks to be done in this challenge. Let's take a look at the solution first and understand what is happening:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Create top_items as empty list</span>
+top_items = []
+
+<span class="hljs-comment"># Extract and store in top_items according to instructions on the left</span>
+products = soup.select(<span class="hljs-string">'div.thumbnail'</span>)
+<span class="hljs-keyword">for</span> elem <span class="hljs-keyword">in</span> products:
+    title = elem.select(<span class="hljs-string">'h4 &gt; a.title'</span>)[<span class="hljs-number">0</span>].text
+    review_label = elem.select(<span class="hljs-string">'div.ratings'</span>)[<span class="hljs-number">0</span>].text
+    info = {
+        <span class="hljs-string">"title"</span>: title.strip(),
+        <span class="hljs-string">"review"</span>: review_label.strip()
+    }
+    top_items.append(info)
+
+print(top_items)
+</code></pre>
+<p>Note that this is only one of the solutions. You can attempt this in a different way too. In this solution:</p>
+<ol>
+<li>First of all you select all the <code>div.thumbnail</code> elements which gives you a list of individual products</li>
+<li>Then you iterate over them</li>
+<li>Because <code>select</code> allows you to chain over itself, you can use select again to get the title.</li>
+<li>Note that because you're running inside a loop for <code>div.thumbnail</code> already, the <code>h4 &gt; a.title</code> selector would only give you one result, inside a list. You select that list's 0th element and extract out the text.</li>
+<li>Finally you strip any extra whitespace and append it to your list.</li>
+</ol>
+<p>Straightforward right?</p>
+<h2 id="heading-part-6-extracting-links">Part 6: Extracting Links</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/be9b007a-ff03-45d5-ad44-1adecdb21e2a">link to this lab</a>.</p>
+<p>So far you have seen how you can extract the text, or rather innerText of elements. Let's now see how you can extract attributes by extracting links from the page.</p>
+<p>Here’s an example of how to extract out all the image information from the page:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Create top_items as empty list</span>
+image_data = []
+
+<span class="hljs-comment"># Extract and store in top_items according to instructions on the left</span>
+images = soup.select(<span class="hljs-string">'img'</span>)
+<span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> images:
+    src = image.get(<span class="hljs-string">'src'</span>)
+    alt = image.get(<span class="hljs-string">'alt'</span>)
+    image_data.append({<span class="hljs-string">"src"</span>: src, <span class="hljs-string">"alt"</span>: alt})
+
+print(image_data)
+</code></pre>
+<p>In this lab, your task is to extract the <code>href</code> attribute of links with their <code>text</code> as well. Make sure of the following things:</p>
+<ul>
+<li>You have to create a list called <code>all_links</code></li>
+<li>In this list, store all link dict information. It should be in the following format:</li>
+</ul>
+<pre><code class="lang-py">info = {
+   <span class="hljs-string">"href"</span>: <span class="hljs-string">"&lt;link here&gt;"</span>,
+   <span class="hljs-string">"text"</span>: <span class="hljs-string">"&lt;link text here&gt;"</span>
+}
+</code></pre>
+<ul>
+<li>Make sure your <code>text</code> is stripped of any whitespace</li>
+<li>Make sure you check if your <code>.text</code> is None before you call <code>.strip()</code> on it.</li>
+<li>Store all these dicts in the <code>all_links</code></li>
+<li>Print this list at the end</li>
+</ul>
+<p>You are extracting the attribute values just like you extract values from a dict, using the <code>get</code> function. Let's take a look at the solution for this lab:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Create top_items as empty list</span>
+all_links = []
+
+<span class="hljs-comment"># Extract and store in top_items according to instructions on the left</span>
+links = soup.select(<span class="hljs-string">'a'</span>)
+<span class="hljs-keyword">for</span> ahref <span class="hljs-keyword">in</span> links:
+    text = ahref.text
+    text = text.strip() <span class="hljs-keyword">if</span> text <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">else</span> <span class="hljs-string">''</span>
+
+    href = ahref.get(<span class="hljs-string">'href'</span>)
+    href = href.strip() <span class="hljs-keyword">if</span> href <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span> <span class="hljs-keyword">else</span> <span class="hljs-string">''</span>
+    all_links.append({<span class="hljs-string">"href"</span>: href, <span class="hljs-string">"text"</span>: text})
+
+print(all_links)
+</code></pre>
+<p>Here, you extract the <code>href</code> attribute just like you did in the image case. The only thing you're doing is also checking if it is None. We want to set it to empty string, otherwise we want to strip the whitespace.</p>
+<h2 id="heading-part-7-generating-csv-from-data">Part 7: Generating CSV from data</h2>
+<p>This is the <a target="_blank" href="https://codedamn.com/practice/web-scraping-python-beautifulsoup/a10e33c1-7780-40bc-a541-adc632fab185">link to this lab</a>.</p>
+<p>Finally, let's understand how you can generate CSV from a set of data. You will create a CSV with the following headings:</p>
+<ol>
+<li>Product Name</li>
+<li>Price</li>
+<li>Description</li>
+<li>Reviews</li>
+<li>Product Image</li>
+</ol>
+<p>These products are located in the <code>div.thumbnail</code>. The CSV boilerplate is given below:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-keyword">import</span> csv
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+all_products = []
+
+products = soup.select(<span class="hljs-string">'div.thumbnail'</span>)
+<span class="hljs-keyword">for</span> product <span class="hljs-keyword">in</span> products:
+    <span class="hljs-comment"># <span class="hljs-doctag">TODO:</span> Work</span>
+    print(<span class="hljs-string">"Work on product here"</span>)
+
+
+keys = all_products[<span class="hljs-number">0</span>].keys()
+
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'products.csv'</span>, <span class="hljs-string">'w'</span>, newline=<span class="hljs-string">''</span>) <span class="hljs-keyword">as</span> output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(all_products)
+</code></pre>
+<p>You have to extract data from the website and generate this CSV for the three products.</p>
+<h3 id="heading-passing-requirements-4">Passing Requirements:</h3>
+<ul>
+<li>Product Name is the whitespace trimmed version of the name of the item (example - Asus AsusPro Adv..)</li>
+<li>Price is the whitespace trimmed but full price label of the product (example - $1101.83)</li>
+<li>The description is the whitespace trimmed version of the product description (example - Asus AsusPro Advanced BU401LA-FA271G Dark Grey, 14", Core i5-4210U, 4GB, 128GB SSD, Win7 Pro)</li>
+<li>Reviews are the whitespace trimmed version of the product (example - 7 reviews)</li>
+<li>Product image is the URL (src attribute) of the image for a product (example - /webscraper-python-codedamn-classroom-website/cart2.png)</li>
+<li>The name of the CSV file should be <strong>products.csv</strong> and should be stored in the same directory as your <strong>script.py</strong> file</li>
+</ul>
+<p>Let's see the solution to this lab:</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-keyword">import</span> csv
+<span class="hljs-comment"># Make a request</span>
+page = requests.get(
+    <span class="hljs-string">"https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/"</span>)
+soup = BeautifulSoup(page.content, <span class="hljs-string">'html.parser'</span>)
+
+<span class="hljs-comment"># Create top_items as empty list</span>
+all_products = []
+
+<span class="hljs-comment"># Extract and store in top_items according to instructions on the left</span>
+products = soup.select(<span class="hljs-string">'div.thumbnail'</span>)
+<span class="hljs-keyword">for</span> product <span class="hljs-keyword">in</span> products:
+    name = product.select(<span class="hljs-string">'h4 &gt; a'</span>)[<span class="hljs-number">0</span>].text.strip()
+    description = product.select(<span class="hljs-string">'p.description'</span>)[<span class="hljs-number">0</span>].text.strip()
+    price = product.select(<span class="hljs-string">'h4.price'</span>)[<span class="hljs-number">0</span>].text.strip()
+    reviews = product.select(<span class="hljs-string">'div.ratings'</span>)[<span class="hljs-number">0</span>].text.strip()
+    image = product.select(<span class="hljs-string">'img'</span>)[<span class="hljs-number">0</span>].get(<span class="hljs-string">'src'</span>)
+
+    all_products.append({
+        <span class="hljs-string">"name"</span>: name,
+        <span class="hljs-string">"description"</span>: description,
+        <span class="hljs-string">"price"</span>: price,
+        <span class="hljs-string">"reviews"</span>: reviews,
+        <span class="hljs-string">"image"</span>: image
+    })
+
+
+keys = all_products[<span class="hljs-number">0</span>].keys()
+
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'products.csv'</span>, <span class="hljs-string">'w'</span>, newline=<span class="hljs-string">''</span>) <span class="hljs-keyword">as</span> output_file:
+    dict_writer = csv.DictWriter(output_file, keys)
+    dict_writer.writeheader()
+    dict_writer.writerows(all_products)
+</code></pre>
+<p>The <code>for</code> block is the most interesting here. You extract all the elements and attributes from what you've learned so far in all the labs. </p>
+<p>When you run this code, you end up with a nice CSV file. And that's about all the basics of web scraping with BeautifulSoup!</p>
+<h2 id="heading-conclusion">Conclusion</h2>
+<p>I hope this interactive classroom from <a target="_blank" href="https://codedamn.com">codedamn</a> helped you understand the basics of web scraping with Python. </p>
+<p>If you liked this classroom and this blog, tell me about it on my <a target="_blank" href="https://twitter.com/mehulmpt">twitter</a> and <a target="_blank" href="https://instagram.com/mehulmpt">Instagram</a>. Would love to hear feedback!</p>
+
+
+                        </section>
+                        
+                            <div class="sidebar">
+                                
+                                    
+                                    <script>var localizedAdText = "ADVERTISEMENT";</script>
+                                
+                            </div>
+                        
+                    </div>
+                    <hr>
+                    
+
+                    
+                    
+                        
+    
+
+
+<p data-test-label="social-row-cta" class="social-row">
+    If you read this far, thank the author to show them you care. <button id="tweet-btn" class="cta-button" data-test-label="tweet-button">Say Thanks</button>
+</p>
+
+
+    
+    <script>document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("tweet-btn"),e=window.location,o="Web%20Scraping%20Python%20Tutorial%20%E2%80%93%20How%20to%20Scrape%20Data%20From%20A%20Website".replace(/&#39;/g,"%27"),n="",r="@freecodecamp",i=Boolean("");let a;if(i&&(n||r)){const t={originalPostAuthor:"",currentPostAuthor:"freeCodeCamp"};a=encodeURIComponent(`Thank you ${n||t.originalPostAuthor} for writing this helpful article, and ${r||t.currentPostAuthor} for translating it.`)}else!i&&r&&(a=encodeURIComponent(`Thank you ${r} for writing this helpful article.`));const c=`window.open(\n    '${a?`https://x.com/intent/post?text=${a}%0A%0A${o}%0A%0A${e}`:`https://x.com/intent/post?text=${o}%0A%0A${e}`}',\n    'share-twitter',\n    'width=550, height=235'\n  ); return false;`;t.setAttribute("onclick",c)});</script>
+
+
+                        
+
+<div class="learn-cta-row" data-test-label="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. <a href="https://www.freecodecamp.org/learn" class="cta-button" id="learn-to-code-cta" rel="noopener noreferrer" target="_blank">Get started</a>
+    </p>
+</div>
+
+                    
+                </section>
+                
+                    <div class="banner-ad-bottom">
+                        
+                            
+
+<div class="ad-text" data-test-label="ad-text">ADVERTISEMENT</div>
+<div style="display: block; height: auto" id="gam-ad-bottom">
+</div>
+
+                        
+                    </div>
+                
+            </article>
+        </div>
+    </main>
+
+
+            
+
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-desc-col">
+            <p data-test-label="tax-exempt-status">freeCodeCamp is a donor-supported tax-exempt 501(c)(3) charity organization (United States Federal Tax Identification Number: 82-0779546)</p>
+            <p data-test-label="mission-statement">Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos, articles, and interactive coding lessons - all freely available to the public.</p>
+            <p data-test-label="donation-initiatives">Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services, and staff.</p>
+            <p class="footer-donation" data-test-label="donate-text">
+                You can <a href="https://www.freecodecamp.org/donate/" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+            </p>
+        </div>
+        <div class="trending-guides" data-test-label="trending-guides">
+            <h2 id="trending-guides" class="col-header">Trending Books and Handbooks</h2>
+            <ul class="trending-guides-articles" aria-labelledby="trending-guides">
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-consume-and-document-a-rest-api/" rel="noopener noreferrer" target="_blank">REST APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-write-clean-code/" rel="noopener noreferrer" target="_blank">Clean Code
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-typescript-with-react-handbook/" rel="noopener noreferrer" target="_blank">TypeScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" rel="noopener noreferrer" target="_blank">JavaScript
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-an-ai-chatbot-with-redis-python-and-gpt/" rel="noopener noreferrer" target="_blank">AI Chatbots
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/command-line-for-beginners/" rel="noopener noreferrer" target="_blank">Command Line
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/building-consuming-and-documenting-a-graphql-api/" rel="noopener noreferrer" target="_blank">GraphQL APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/complete-guide-to-css-transform-functions-and-properties/" rel="noopener noreferrer" target="_blank">CSS Transforms
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-build-scalable-access-control-for-your-web-app/" rel="noopener noreferrer" target="_blank">Access Control
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/rest-api-design-best-practices-build-a-rest-api/" rel="noopener noreferrer" target="_blank">REST API Design
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-php-handbook/" rel="noopener noreferrer" target="_blank">PHP
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-java-handbook/" rel="noopener noreferrer" target="_blank">Java
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-linux-for-beginners-book-basic-to-advanced/" rel="noopener noreferrer" target="_blank">Linux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/react-for-beginners-handbook/" rel="noopener noreferrer" target="_blank">React
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-continuous-integration-delivery-and-deployment/" rel="noopener noreferrer" target="_blank">CI/CD
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-docker-handbook/" rel="noopener noreferrer" target="_blank">Docker
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-golang-handbook/" rel="noopener noreferrer" target="_blank">Golang
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-python-handbook/" rel="noopener noreferrer" target="_blank">Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/get-started-with-nodejs/" rel="noopener noreferrer" target="_blank">Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/" rel="noopener noreferrer" target="_blank">Todo APIs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/how-to-use-classes-in-javascript-handbook/" rel="noopener noreferrer" target="_blank">JavaScript Classes
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/front-end-javascript-development-react-angular-vue-compared/" rel="noopener noreferrer" target="_blank">Front-End Libraries
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/the-express-handbook/" rel="noopener noreferrer" target="_blank">Express and Node.js
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/python-code-examples-sample-script-coding-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Python Code Examples
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/clustering-in-python-a-machine-learning-handbook/" rel="noopener noreferrer" target="_blank">Clustering in Python
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/an-introduction-to-software-architecture-patterns/" rel="noopener noreferrer" target="_blank">Software Architecture
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/what-is-programming-tutorial-for-beginners/" rel="noopener noreferrer" target="_blank">Programming Fundamentals
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-to-code-book/" rel="noopener noreferrer" target="_blank">Coding Career Preparation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/become-a-full-stack-developer-and-get-a-job/" rel="noopener noreferrer" target="_blank">Full-Stack Developer Guide
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.freecodecamp.org/news/learn-python-for-javascript-developers-handbook/" rel="noopener noreferrer" target="_blank">Python for JavaScript Devs
+                    </a>
+                </li>
+            </ul>
+            <div class="spacer" style="padding: 15px 0;"></div>
+            <div>
+                <h2 id="mobile-app" class="col-header">
+                    Mobile App
+                </h2>
+                <div class="min-h-[1px] px-[15px] md:w-2/3 md:ml-[16.6%]">
+                    <ul aria-labelledby="mobile-app" class="mobile-app-container">
+                        <li>
+                            <a href="https://apps.apple.com/us/app/freecodecamp/id6446908151?itsct=apps_box_link&itscg=30200" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/apple-store-badge.svg" lang="en" alt="Download on the App Store">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://play.google.com/store/apps/details?id=org.freecodecamp" rel="noopener noreferrer" target="_blank">
+                                <img src="https://cdn.freecodecamp.org/platform/universal/google-play-badge.svg" lang="en" alt="Get it on Google Play">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <h2 class="col-header" data-test-label="our-nonprofit">Our Charity</h2>
+        <div class="our-nonprofit">
+
+            <a href="https://hashnode.com/" rel="noopener noreferrer" target="_blank" data-test-label="powered-by">
+                Publication powered by Hashnode
+            </a>
+            <a href="https://www.freecodecamp.org/news/about/" rel="noopener noreferrer" target="_blank" data-test-label="about">
+                About
+            </a>
+            <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank" data-test-label="alumni">
+                Alumni Network
+            </a>
+            <a href="https://github.com/freeCodeCamp/" rel="noopener noreferrer" target="_blank" data-test-label="open-source">
+                Open Source
+            </a>
+            <a href="https://www.freecodecamp.org/news/shop/" rel="noopener noreferrer" target="_blank" data-test-label="shop">
+                Shop
+            </a>
+            <a href="https://www.freecodecamp.org/news/support/" rel="noopener noreferrer" target="_blank" data-test-label="support">
+                Support
+            </a>
+            <a href="https://www.freecodecamp.org/news/sponsors/" rel="noopener noreferrer" target="_blank" data-test-label="sponsors">
+                Sponsors
+            </a>
+            <a href="https://www.freecodecamp.org/news/academic-honesty-policy/" rel="noopener noreferrer" target="_blank" data-test-label="honesty">
+                Academic Honesty
+            </a>
+            <a href="https://www.freecodecamp.org/news/code-of-conduct/" rel="noopener noreferrer" target="_blank" data-test-label="coc">
+                Code of Conduct
+            </a>
+            <a href="https://www.freecodecamp.org/news/privacy-policy/" rel="noopener noreferrer" target="_blank" data-test-label="privacy">
+                Privacy Policy
+            </a>
+            <a href="https://www.freecodecamp.org/news/terms-of-service/" rel="noopener noreferrer" target="_blank" data-test-label="tos">
+                Terms of Service
+            </a>
+            <a href="https://www.freecodecamp.org/news/copyright-policy/" rel="noopener noreferrer" target="_blank" data-test-label="copyright">
+                Copyright Policy
+            </a>
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+        
+        
+
+        
+        
+    </body>
+</html>

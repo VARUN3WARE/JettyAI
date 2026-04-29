@@ -43,7 +43,7 @@ Follow these steps from start to finish to clone, build, and run the pipeline.
 ### 1. Clone the Repository
 Open your terminal and clone the repository (replace with the actual repository URL):
 ```bash
-git clone <repository_url>
+git clone https://github.com/VARUN3WARE/JettyAI.git
 cd project
 ```
 
