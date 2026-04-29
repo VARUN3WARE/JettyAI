@@ -1,0 +1,11 @@
+# blogs
+https://towardsdatascience.com/let-the-ai-do-the-experimenting/
+https://towardsdatascience.com/correlation-doesnt-mean-causation-but-what-does-it-mean/
+https://www.freecodecamp.org/news/web-scraping-python-tutorial-how-to-scrape-data-from-a-website/
+
+# youtube
+https://www.youtube.com/watch?v=uc6-2z4e9oA
+https://www.youtube.com/watch?v=ng2o98k983k
+
+# pubmed
+https://pubmed.ncbi.nlm.nih.gov/34356119/

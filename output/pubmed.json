@@ -1,0 +1,26 @@
+[
+  {
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34356119/",
+    "source_type": "pubmed",
+    "author": "Min-Hwan Sohn",
+    "published_date": "2021-01-01",
+    "language": "en",
+    "region": null,
+    "topic_tags": [
+      "showed significantly worse",
+      "exhibited significantly worse",
+      "grade serous ovarian"
+    ],
+    "trust_score": 0.55,
+    "trust_breakdown": {
+      "author_credibility": 0.9,
+      "domain_authority": 0.95,
+      "recency": 0.2,
+      "citations": 1.0,
+      "disclaimer": 1.0
+    },
+    "content_chunks": [
+      "High-grade serous ovarian cancer (HGSOC) is one of the deadliest cancers that can occur in women. This study aimed to investigate the molecular characteristics of HGSOC through integrative analysis of multi-omics data. We used fresh-frozen, chemotherapy-naïve primary ovarian cancer tissues and matched blood samples of HGSOC patients and conducted next-generation whole-exome sequencing (WES) and RNA sequencing (RNA-seq). Genomic and transcriptomic profiles were comprehensively compared between patients with germline BRCA1/2 mutations and others with wild-type BRCA1/2 . HGSOC samples initially divided into two groups by the presence of germline BRCA1/2 mutations showed mutually exclusive somatic mutation patterns, yet the implementation of high-dimensional analysis of RNA-seq and application of epithelial-to-mesenchymal (EMT) index onto the HGSOC samples revealed that they can be divided into two subtypes; homologous recombination repair (HRR)-activated type and mesenchymal type. Patients with mesenchymal HGSOC, characterized by the activation of the EMT transcriptional program, low genomic alteration and diverse cell-type compositions, exhibited significantly worse overall survival than did those with HRR-activated HGSOC ( p = 0.002). In validation with The Cancer Genome Atlas (TCGA) HGSOC data, patients with a high EMT index (≥the median) showed significantly worse overall survival than did those with a low EMT index ( p = 0.030). In conclusion, through a comprehensive multi-omics approach towards our HGSOC cohorts, two distinctive types of HGSOC (HRR-activated and mesenchymal) were identified. Our novel EMT index seems to be a potential prognostic biomarker for HGSOC."
+    ]
+  }
+]

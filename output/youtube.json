@@ -1,0 +1,53 @@
+[
+  {
+    "source_url": "https://www.youtube.com/watch?v=uc6-2z4e9oA",
+    "source_type": "youtube",
+    "author": "Harry Potter",
+    "published_date": "2017-10-23",
+    "language": "en",
+    "region": null,
+    "topic_tags": [
+      "blood prince harry",
+      "harry potter",
+      "wizarding world",
+      "textbook"
+    ],
+    "trust_score": 0.525,
+    "trust_breakdown": {
+      "author_credibility": 0.7,
+      "domain_authority": 0.7,
+      "recency": 0.2,
+      "citations": 0.1,
+      "disclaimer": 1.0
+    },
+    "content_chunks": [
+      "Harry Potter excels in Potions class and chances upon a past-student's textbook... For more from the Wizarding World,"
+    ]
+  },
+  {
+    "source_url": "https://www.youtube.com/watch?v=ng2o98k983k",
+    "source_type": "youtube",
+    "author": "Corey Schafer",
+    "published_date": "2017-11-08",
+    "language": "en",
+    "region": null,
+    "topic_tags": [
+      "online store beautifulsoup",
+      "scrape websites using",
+      "get started",
+      "python file objects",
+      "python csv files"
+    ],
+    "trust_score": 0.495,
+    "trust_breakdown": {
+      "author_credibility": 0.7,
+      "domain_authority": 0.7,
+      "recency": 0.2,
+      "citations": 0.7,
+      "disclaimer": 1.0
+    },
+    "content_chunks": [
+      "In this Python Programming Tutorial, we will be learning how to scrape websites using the BeautifulSoup library. BeautifulSoup is an excellent tool for parsing HTML code and grabbing exactly the information you need. So whether you're pulling down headlines from news sites, scores from sports websites, or prices from an online store... BeautifulSoup and Python will help you get this done quickly and easily. Let's get started... The code from this video can be found at: https://github.com/CoreyMSchafer/code_snippets/tree/master/BeautifulSoup Difference Between Parsers: https://goo.gl/zdy9br Python File Objects: https://youtu.be/Uh2ebFW8OYM Python Strings: https://youtu.be/k9TUPpGqYTo Python Try/Except: https://youtu.be/NIWwJbo-9_8 Python CSV Files: https://youtu.be/q5uM4VKywbA ✅"
+    ]
+  }
+]

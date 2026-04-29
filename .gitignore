@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+.DS_Store
+
+# Ignore sensitive data
+cookies.txt
+
+# Keep output JSONs but ignore raw logs/html
+output/raw/
+logs/
+*.log
